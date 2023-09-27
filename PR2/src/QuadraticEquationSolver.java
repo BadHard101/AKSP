@@ -1,6 +1,13 @@
-import java.util.Arrays;
-
 public class QuadraticEquationSolver {
+    /**
+     * Этот метод вычисляет корни квадратного уравнения, заданного своими коэффициентами.
+     * Он обрабатывает случаи наличия двух действительных корней,
+     * одного действительного корня или отсутствия действительных корней.
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
     public static double[] solveQuadraticEquation(double a, double b, double c) {
         if (a == 0) {
             if (b == 0) {
@@ -22,9 +29,5 @@ public class QuadraticEquationSolver {
                 return new double[0];
             }
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(solveQuadraticEquation(0, -3.0, 2.0)));
     }
 }
