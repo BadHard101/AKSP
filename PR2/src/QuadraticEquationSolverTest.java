@@ -15,7 +15,7 @@ public class QuadraticEquationSolverTest {
 
         double[] answer = QuadraticEquationSolver.solveQuadraticEquation(a, b, c);
 
-        assertTrue(answer.equals(new double[] {}));
+        assertArrayEquals(answer, new double[]{2.0, 1.0});
     }
 
     @Test
@@ -24,10 +24,9 @@ public class QuadraticEquationSolverTest {
         b = -4.0;
         c = 4.0;
 
-        String output = QuadraticEquationSolver.solveQuadraticEquation(a, b, c);
+        double[] answer = QuadraticEquationSolver.solveQuadraticEquation(a, b, c);
 
-        assertTrue(output.contains("Уравнение имеет один корень:"));
-        assertTrue(output.contains("Корень: 2.0"));
+        assertArrayEquals(answer, new double[]{2});
     }
 
     @Test
@@ -36,9 +35,9 @@ public class QuadraticEquationSolverTest {
         b = 1.0;
         c = 5.0;
 
-        String output = QuadraticEquationSolver.solveQuadraticEquation(a, b, c);
+        double[] answer = QuadraticEquationSolver.solveQuadraticEquation(a, b, c);
 
-        assertTrue(output.contains("Уравнение не имеет действительных корней."));
+        assertArrayEquals(answer, new double[]{});
     }
 
     @Test
@@ -47,8 +46,8 @@ public class QuadraticEquationSolverTest {
         b = 1.0;
         c = 1.0;
 
-        String output = QuadraticEquationSolver.solveQuadraticEquation(a, b, c);
+        double[] answer = QuadraticEquationSolver.solveQuadraticEquation(a, b, c);
 
-        assertTrue(output.contains("Уравнение не имеет действительных корней."));
+        assertArrayEquals(answer, new double[] {-1});
     }
 }
