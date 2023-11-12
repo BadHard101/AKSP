@@ -16,8 +16,7 @@ class Store {
         while (product < 1) {
             try {
                 wait();
-            } catch (InterruptedException e) {
-            }
+            } catch (InterruptedException ignored) {}
         }
         product--;
         System.out.println("Покупатель купил 1 товар");
@@ -29,8 +28,7 @@ class Store {
         while (product >= 3) {
             try {
                 wait();
-            } catch (InterruptedException e) {
-            }
+            } catch (InterruptedException ignored) {}
         }
         product++;
         System.out.println("Производитель добавил 1 товар");

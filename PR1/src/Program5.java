@@ -17,6 +17,7 @@ public class Program5 {
         phase = phaser.getPhase();
         phaser.arriveAndAwaitAdvance();
         System.out.println("Фаза " + phase + " завершена");
+
         phaser.arriveAndDeregister();
     }
 }

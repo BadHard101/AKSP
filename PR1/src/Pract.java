@@ -13,31 +13,25 @@ class PingPongGame {
 
     public synchronized void playPing() {
         try {
-            while (!pingTurn) {
-                wait();
-            }
+            while (!pingTurn) wait();
             System.out.println("PING");
             pingTurn = false;
             notify();
-        } catch (InterruptedException e) {
-        }
+        } catch (InterruptedException ignored) {}
     }
 
     public synchronized void playPong() {
         try {
-            while (pingTurn) {
-                wait();
-            }
+            while (pingTurn) wait();
             System.out.println("PONG");
             pingTurn = true;
             notify();
-        } catch (InterruptedException e) {
-        }
+        } catch (InterruptedException ignored) {}
     }
 }
 
 class PingPlayer implements Runnable {
-    private PingPongGame game;
+    private final PingPongGame game;
 
     public PingPlayer(PingPongGame game) {
         this.game = game;
@@ -52,7 +46,7 @@ class PingPlayer implements Runnable {
 }
 
 class PongPlayer implements Runnable {
-    private PingPongGame game;
+    private final PingPongGame game;
 
     public PongPlayer(PingPongGame game) {
         this.game = game;
