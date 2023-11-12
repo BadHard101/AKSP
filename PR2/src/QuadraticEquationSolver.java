@@ -1,14 +1,12 @@
-public class QuadraticEquationSolver {
+import java.rmi.RemoteException;
+
+public class QuadraticEquationSolver implements QuadraticEquation {
     /**
      * Этот метод вычисляет корни квадратного уравнения, заданного своими коэффициентами.
      * Он обрабатывает случаи наличия двух действительных корней,
      * одного действительного корня или отсутствия действительных корней.
-     * @param a
-     * @param b
-     * @param c
-     * @return
      */
-    public static double[] solveQuadraticEquation(double a, double b, double c) {
+    public double[] solveQuadraticEquation(double a, double b, double c) throws RemoteException {
         if (a == 0) {
             if (b == 0) {
                 return new double[0];
