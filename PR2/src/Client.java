@@ -3,10 +3,11 @@ import java.rmi.registry.Registry;
 
 // https://javarush.com/groups/posts/2283-rmi-praktika-ispoljhzovanija
 public class Client {
-    private Client(){};
+
+    private Client() {}
 
     public static void main(String[] args) {
-        try{
+        try {
             Registry registry = LocateRegistry.getRegistry(null);
             QuadraticEquation stub = (QuadraticEquation) registry.lookup("Equation");
             if (args.length != 3) {
@@ -18,9 +19,13 @@ public class Client {
             double b = Double.parseDouble(args[1]);
             double c = Double.parseDouble(args[2]);
 
-            stub.solveQuadraticEquation(a, b, c);
-            System.err.println("Server ready");
-        } catch (Exception e){
+            double[] ans = stub.solveQuadraticEquation(a, b, c);
+
+            for (double an : ans) {
+                System.out.println(an);
+            }
+
+        } catch (Exception e) {
             System.err.println("Server exception" + e.toString());
             e.printStackTrace();
         }

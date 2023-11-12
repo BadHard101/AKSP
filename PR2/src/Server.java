@@ -11,7 +11,7 @@ public class Server extends QuadraticEquationSolver {
         try {
             QuadraticEquationSolver obj = new QuadraticEquationSolver();
 
-            QuadraticEquation stub = (QuadraticEquation) UnicastRemoteObject.exportObject(obj, 8082);
+            QuadraticEquation stub = (QuadraticEquation) UnicastRemoteObject.exportObject(obj, 0);
             Registry registry = LocateRegistry.getRegistry();
 
             registry.bind("Equation", stub);
