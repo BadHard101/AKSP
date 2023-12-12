@@ -1,7 +1,6 @@
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-// https://javarush.com/groups/posts/2283-rmi-praktika-ispoljhzovanija
 public class Client {
 
     private Client() {}
